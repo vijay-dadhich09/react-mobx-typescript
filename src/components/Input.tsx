@@ -2,38 +2,65 @@ import React, {ChangeEvent} from 'react';
 import { makeObservable, observable, action} from 'mobx';
 import { observer }  from 'mobx-react';
 
-export class InputState {
+export interface InputProps {
+  value: string;
+  label: string;
+  error: string;
+}
+export class InputState implements InputProps {
   @observable
-  value: string = ''
-  constructor() {
+  value: string;
+  @observable
+  label: string;
+  @observable
+  error: string;
+  constructor(props: InputProps) {
     makeObservable(this, {
       value: observable,
-      onChange: action
+      label: observable,
+      error: observable,
+      onChange: action,
+      setError: action,
+      reset: action,
     })
+    this.value = props.value;
+    this.label = props.label;
+    this.error = props.error;
   }
   
   @action
   onChange = (newValue: string) => {
     this.value = newValue;
   }
+
+  @action
+  setError = (newError: string) => {
+    this.error = newError;
+  }
+
+  @action
+  reset = () => {
+    this.value = '';
+    this.error = ''
+  }
 }
 export const Input: React.FC<{ state: InputState }> = observer(({state}) => {
-  const {value, onChange} = state;
+  const {value, label, error, onChange} = state;
 
   const handleOnChange = (event: ChangeEvent<HTMLInputElement>): void => {
-    // console.log('onchangeValue:', event.target.value);
     onChange(event.target.value);
   }
 
   return (
-    <div>
-      <input
-        value={value}
-        onChange={handleOnChange}
-      />
-      {/* <button onClick={handleDecrementClick}>Decrement</button>
-      <span>{`count: ${count}`}</span>
-      <button onClick={handleIncrementClick}>Increment</button> */}
+    <div className="intpuWrapper">
+      {error !== '' && <div className="inputError">{error}</div>}
+      <label>
+        {label}
+        <input
+          value={value}
+          onChange={handleOnChange}
+        />
+      </label>      
     </div>
   )
 })

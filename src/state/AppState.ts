@@ -2,9 +2,12 @@ import { observable } from 'mobx';
 import { CounterState } from './CounterState';
 import { UserState } from './UserState';
 
-export class AppState {
+export class ApplicationState {
   @observable
   counter = new CounterState();
   @observable
-  user = new UserState();
+  userData = new UserState();
 }
+
+export const AppStore = new ApplicationState();
+

@@ -3,13 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { AppState } from './state/AppState';
+import { AppStore } from './state/AppState';
 
-const appState = new AppState();
+// const appState = new AppState();
 
 ReactDOM.render(
   <React.StrictMode>
-    <App state={appState}/>
+    <App store={AppStore}/>
   </React.StrictMode>,
   document.getElementById('root')
 );

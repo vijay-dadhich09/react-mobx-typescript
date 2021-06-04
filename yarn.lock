@@ -1870,6 +1870,11 @@
   dependencies:
     source-map "^0.6.1"
 
+"@types/validatorjs@^3.15.0":
+  version "3.15.0"
+  resolved "https://registry.yarnpkg.com/@types/validatorjs/-/validatorjs-3.15.0.tgz#2d7d00c5da82d53bf367d6674abc66eaee11ed7d"
+  integrity sha512-tqozguXICRdPQVGho1A+lYH4IzU3ggP82OmfFrmb6N6pxmWuXegpw4Th20hy5KtMfuyP+jXB466ABFMO9vma4Q==
+
 "@types/webpack-sources@*":
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/@types/webpack-sources/-/webpack-sources-2.1.0.tgz#8882b0bd62d1e0ce62f183d0d01b72e6e82e8c10"

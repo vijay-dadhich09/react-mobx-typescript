@@ -15,10 +15,24 @@ nav ul {
   justify-content: space-between;
   list-style: none;
 }
+
+.intpuWrapper {
+  margin: 10px;
+  /* border: 1px solid red; */
+}
+
+.inputError {
+  margin-bottom: 10px;
+  color: red;
+}
+
+
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
